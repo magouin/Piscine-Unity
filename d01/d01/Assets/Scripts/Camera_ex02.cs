@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Camera_ex02 : MonoBehaviour {
 
@@ -8,16 +9,14 @@ public class Camera_ex02 : MonoBehaviour {
 	private Vector3 default_position_claire;
 	private Vector3 default_position_john;
 	private Vector3 default_position_thomas;
-	private int print;
 
-	public	playerScript_ex01 claire;
-	public	playerScript_ex01 john;
-	public	playerScript_ex01 thomas;
+	public	playerScript_ex02 claire;
+	public	playerScript_ex02 john;
+	public	playerScript_ex02 thomas;
 
 	// Use this for initialization
 	void Start () {
 		input = 1;
-		print = 0;
 		default_position_claire = new Vector3(-4, 0.1f, 0);
 		default_position_john = new Vector3(-2, 0.25f, 0);
 		default_position_thomas = new Vector3(-1, 0.25f, 0);
@@ -46,10 +45,7 @@ public class Camera_ex02 : MonoBehaviour {
 			john.transform.position = default_position_john;	
 			thomas.transform.position = default_position_thomas;	
 		}
-		if (print == 0 && claire.finish == 1 && john.finish == 1 && thomas.finish == 1)
-		{
-				print("You won !!!");
-				print = 1;
-		}
+		if (claire.finish == 1 && john.finish == 1 && thomas.finish == 1)
+				SceneManager.LoadScene("ex03", LoadSceneMode.Single);
 	}
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 public class playerScript_ex01 : MonoBehaviour {
 
 	public int go_id;
-	public float masse;
 	public float size_x;
 	public float size_y;
 	public Rigidbody2D rb;
@@ -37,7 +36,7 @@ public class playerScript_ex01 : MonoBehaviour {
 			rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
 			if (Input.GetKey("space") && can_jump == 1)
 			{
-				rb.AddForce(new Vector2(0, 1) * 100 * (4 - masse));
+				rb.AddForce(new Vector2(0, 1) * 100);
 				can_jump = 0;
 			}
 			if (Input.GetKey(KeyCode.LeftArrow))
