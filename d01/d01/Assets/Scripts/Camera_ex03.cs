@@ -46,6 +46,6 @@ public class Camera_ex03 : MonoBehaviour {
 			thomas.transform.position = default_position_thomas;	
 		}
 		if (claire.finish == 1 && john.finish == 1 && thomas.finish == 1)
-				SceneManager.LoadScene("ex03", LoadSceneMode.Single);
+				SceneManager.LoadScene("ex04", LoadSceneMode.Single);
 	}
 }

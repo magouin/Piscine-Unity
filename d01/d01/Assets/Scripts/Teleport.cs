@@ -16,7 +16,6 @@ public class Teleport : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D other) {
-		print("ici?");
 		other.gameObject.transform.position = teleport_out.transform.position;
 	}
 }
