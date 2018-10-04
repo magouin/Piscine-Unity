@@ -14,9 +14,12 @@ public class Drag_Drop : MonoBehaviour {
 	}
      void OnMouseDown()
     {
-		img = Instantiate(gameObject, transform.position, transform.rotation, transform.parent);
-        distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        dragging = true;
+		if (gameManager.gm.playerEnergy >= turret.GetComponent<towerScript>().energy)
+		{
+			img = Instantiate(gameObject, transform.position, transform.rotation, transform.parent);
+			distance = Vector3.Distance(transform.position, Camera.main.transform.position);
+			dragging = true;
+		}
     }
  
     void OnMouseUp()
@@ -32,8 +35,6 @@ public class Drag_Drop : MonoBehaviour {
 					img.transform.position = hit.collider.gameObject.transform.position;
 					Instantiate(turret, img.transform.position, img.transform.rotation);
 				}
-				else
-					print("Not enought energy: " + gameManager.gm.playerEnergy);
 			}
 		}
 		Destroy(img.gameObject);

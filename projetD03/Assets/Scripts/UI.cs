@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour {
-
+	public Texture2D cursorTexture;
 	// Use this for initialization
 	void Start () {
-		
+		Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
 	}
 	
 	// Update is called once per frame
@@ -15,11 +15,15 @@ public class UI : MonoBehaviour {
 		
 	}
 
+	public void Restart()
+	{
+		SceneManager.LoadScene("Scenes/ex00");
+	}
 	public void doExitGame() {
     	Application.Quit();
  	}
 	
 	public void StartGame() {
-		SceneManager.LoadScene("ex01");
+		SceneManager.LoadScene("Scenes/ex01");
 	}
 }
