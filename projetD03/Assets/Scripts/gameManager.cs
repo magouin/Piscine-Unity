@@ -19,6 +19,7 @@ public class gameManager : MonoBehaviour {
 	[HideInInspector]public int currentWave = 1;
 	private float tmpTimeScale = 1;
 	[HideInInspector]public int score = 0;
+	[HideInInspector]public int statusGame = 1;
 
 	public static gameManager gm;
 
@@ -60,6 +61,7 @@ public class gameManager : MonoBehaviour {
 
 	//On pause le jeu en cas de game over
 	public void gameOver() {
+		statusGame = 0;
 		Time.timeScale = 0;
 		Debug.Log ("Game Over");
 	}

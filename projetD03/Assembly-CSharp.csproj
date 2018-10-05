@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Canvas.cs" />
      <Compile Include="Assets\Scripts\checkpoint.cs" />
      <Compile Include="Assets\Scripts\Drag_Drop.cs" />
+     <Compile Include="Assets\Scripts\EndGame.cs" />
      <Compile Include="Assets\Scripts\ennemyScript.cs" />
      <Compile Include="Assets\Scripts\ennemySpawner.cs" />
      <Compile Include="Assets\Scripts\explosion.cs" />

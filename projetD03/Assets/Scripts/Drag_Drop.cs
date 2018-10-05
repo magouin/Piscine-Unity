@@ -17,6 +17,7 @@ public class Drag_Drop : MonoBehaviour {
 		if (gameManager.gm.playerEnergy >= turret.GetComponent<towerScript>().energy)
 		{
 			img = Instantiate(gameObject, transform.position, transform.rotation, transform.parent);
+			img.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 			distance = Vector3.Distance(transform.position, Camera.main.transform.position);
 			dragging = true;
 		}
@@ -27,7 +28,8 @@ public class Drag_Drop : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 		if(hit)
 		{
-			if (hit.collider.gameObject.tag == "empty")
+			print(hit.collider.tag);
+			if (hit.collider.tag == "empty")
 			{
 				if (gameManager.gm.playerEnergy >= turret.GetComponent<towerScript>().energy)
 				{

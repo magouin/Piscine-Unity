@@ -68,6 +68,7 @@ public class ennemyScript : MonoBehaviour {
 					return ;
 				}
 			}
+			gameManager.gm.statusGame = 2;
 			Debug.Log ("Victoire !");
 		}
 	}
