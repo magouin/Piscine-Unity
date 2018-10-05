@@ -71,7 +71,6 @@ public class Canvas : MonoBehaviour {
 			str = "SS";
 		else
 			str = "SSS";
-		print(str);
 		rang.GetComponent<Text>().text = "Rank : " + str;
 	}
 

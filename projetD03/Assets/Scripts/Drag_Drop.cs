@@ -8,6 +8,7 @@ public class Drag_Drop : MonoBehaviour {
     private float distance;
 	private GameObject img;
 	private GameObject[] empty;
+	public GameObject overlay;
 
 	void Start(){
 		empty = GameObject.FindGameObjectsWithTag("empty"); 
@@ -28,14 +29,16 @@ public class Drag_Drop : MonoBehaviour {
 		RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 		if(hit)
 		{
-			print(hit.collider.tag);
 			if (hit.collider.tag == "empty")
 			{
 				if (gameManager.gm.playerEnergy >= turret.GetComponent<towerScript>().energy)
 				{
 					gameManager.gm.playerEnergy -= turret.GetComponent<towerScript>().energy;
 					img.transform.position = hit.collider.gameObject.transform.position;
-					Instantiate(turret, img.transform.position, img.transform.rotation);
+					GameObject tower =  GameObject.Instantiate(turret, img.transform.position, img.transform.rotation);
+					MenuUpgrade upgrade = GameObject.Instantiate(overlay, img.transform.position, img.transform.rotation, turret.transform.parent).GetComponent<MenuUpgrade>();
+					upgrade.transform.position -= new Vector3(0, 0, 1);
+					upgrade.tower = tower.GetComponent<towerScript>();
 				}
 			}
 		}
