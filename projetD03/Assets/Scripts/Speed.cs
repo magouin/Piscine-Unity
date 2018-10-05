@@ -13,7 +13,7 @@ public class Speed : MonoBehaviour {
 	}
 	
 	public void ChangeSpeed(int speed_id){
-		print(speed_id);
+		// print(speed_id);
 		gameManager.gm.changeSpeed(speed_id);
 		text.GetComponent<Text>().text = "Speed : " + speed_id;
 	}

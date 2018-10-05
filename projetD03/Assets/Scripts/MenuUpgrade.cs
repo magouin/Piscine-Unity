@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class MenuUpgrade : MonoBehaviour {
 
+	bool upped = true;
+
+	[HideInInspector]public GameObject overlay;
 	private void OnMouseOver() {
-		if (Input.GetMouseButton(1))
-			Debug.Log("Coucou");
+		if (Input.GetMouseButtonDown(1))
+		{
+			overlay.SetActive(true);
+			upped = false;
+		}
 	}
 	[HideInInspector] public towerScript tower;
 	// Use this for initialization
@@ -16,6 +22,12 @@ public class MenuUpgrade : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetMouseButtonUp(1))
+		{
+			if (!upped)
+				upped = true;
+			else
+				overlay.SetActive(false);
+		}
 	}
 }

@@ -6,9 +6,11 @@ public class Drag_Drop : MonoBehaviour {
 	public GameObject turret;
     private bool dragging = false;
     private float distance;
+	public GameObject canvas;
 	private GameObject img;
 	private GameObject[] empty;
 	public GameObject overlay;
+	public GameObject overlayTrue;
 
 	void Start(){
 		empty = GameObject.FindGameObjectsWithTag("empty"); 
@@ -39,6 +41,13 @@ public class Drag_Drop : MonoBehaviour {
 					MenuUpgrade upgrade = GameObject.Instantiate(overlay, img.transform.position, img.transform.rotation, turret.transform.parent).GetComponent<MenuUpgrade>();
 					upgrade.transform.position -= new Vector3(0, 0, 1);
 					upgrade.tower = tower.GetComponent<towerScript>();
+					GameObject overlayTrue_g = Instantiate(overlayTrue, img.transform.position, img.transform.rotation, canvas.transform);
+					// overlayTrueClone.GetComponent<RectTransform>().off = upgrade.tower.GetComponent<RectTransform>();
+					// overlayTrueClone.GetComponent<RectTransform>().position = upgrade.tower.transform.position;
+					overlayTrue_g.GetComponent<RectTransform>().position = upgrade.tower.transform.position;
+					overlayTrue_g.SetActive(false);
+					overlayTrue_g.GetComponent<Overlay>().turret = tower;
+					upgrade.overlay = overlayTrue_g;
 				}
 			}
 		}

@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\GetHit.cs" />
      <Compile Include="Assets\Scripts\InitValue.cs" />
      <Compile Include="Assets\Scripts\MenuUpgrade.cs" />
+     <Compile Include="Assets\Scripts\Overlay.cs" />
      <Compile Include="Assets\Scripts\rocketScript.cs" />
      <Compile Include="Assets\Scripts\shellExplosion.cs" />
      <Compile Include="Assets\Scripts\shellScript.cs" />
